@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 import { PhoneIcon } from '@heroicons/react/24/solid';
+import Breadcrumb from './Breadcrumb';
 
 interface VehicleImage {
   version: number;
@@ -151,6 +152,10 @@ const ContactDetails = styled.div`
   margin-top: 1rem;
 `;
 
+const Content = styled.div`
+  margin-top: 1rem;
+`;
+
 export function VehicleDetails({ vehicleData }: { vehicleData: Vehicle }) {
   const [showPhone, setShowPhone] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
@@ -179,90 +184,97 @@ export function VehicleDetails({ vehicleData }: { vehicleData: Vehicle }) {
 
   return (
     <Container>
-      <ImageContainer>
-        <ImageWrapper>
-          <Image
-            src={getImageUrl(vehicleData.id, selectedImage)}
-            alt={vehicleData.title}
-            fill
-            style={{ objectFit: 'cover' }}
-          />
-        </ImageWrapper>
-        <ThumbnailContainer>
-          {imageUrls.map((index) => (
-            <ThumbnailButton
-              key={index}
-              onClick={() => setSelectedImage(index)}
-              isSelected={selectedImage === index}
-            >
-              <Image
-                src={getImageUrl(vehicleData.id, index)}
-                alt={`${vehicleData.title} - View ${index + 1}`}
-                fill
-                style={{ objectFit: 'cover' }}
-              />
-            </ThumbnailButton>
-          ))}
-        </ThumbnailContainer>
-      </ImageContainer>
+      <Breadcrumb 
+        brand={vehicleData.make} 
+        model={vehicleData.model} 
+        type={vehicleData.variant || vehicleData.year.toString()} 
+      />
+      <Content>
+        <ImageContainer>
+          <ImageWrapper>
+            <Image
+              src={getImageUrl(vehicleData.id, selectedImage)}
+              alt={vehicleData.title}
+              fill
+              style={{ objectFit: 'cover' }}
+            />
+          </ImageWrapper>
+          <ThumbnailContainer>
+            {imageUrls.map((index) => (
+              <ThumbnailButton
+                key={index}
+                onClick={() => setSelectedImage(index)}
+                isSelected={selectedImage === index}
+              >
+                <Image
+                  src={getImageUrl(vehicleData.id, index)}
+                  alt={`${vehicleData.title} - View ${index + 1}`}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+              </ThumbnailButton>
+            ))}
+          </ThumbnailContainer>
+        </ImageContainer>
 
-      <DetailsContainer>
-        <Title>{vehicleData.title}</Title>
-        <PriceText>{formatPrice(vehicleData.price)}</PriceText>
+        <DetailsContainer>
+          <Title>{vehicleData.title}</Title>
+          <PriceText>{formatPrice(vehicleData.price)}</PriceText>
 
-        <SpecsGrid>
-          <SpecItem>
-            <SpecLabel>Mileage</SpecLabel>
-            <SpecValue>{formatMileage(vehicleData.mileage)}</SpecValue>
-          </SpecItem>
-          <SpecItem>
-            <SpecLabel>Transmission</SpecLabel>
-            <SpecValue>{vehicleData.transmission}</SpecValue>
-          </SpecItem>
-          <SpecItem>
-            <SpecLabel>Fuel Type</SpecLabel>
-            <SpecValue>{vehicleData.fuel_type}</SpecValue>
-          </SpecItem>
-          <SpecItem>
-            <SpecLabel>Color</SpecLabel>
-            <SpecValue>{vehicleData.colour}</SpecValue>
-          </SpecItem>
-        </SpecsGrid>
+          <SpecsGrid>
+            <SpecItem>
+              <SpecLabel>Mileage</SpecLabel>
+              <SpecValue>{formatMileage(vehicleData.mileage)}</SpecValue>
+            </SpecItem>
+            <SpecItem>
+              <SpecLabel>Transmission</SpecLabel>
+              <SpecValue>{vehicleData.transmission}</SpecValue>
+            </SpecItem>
+            <SpecItem>
+              <SpecLabel>Fuel Type</SpecLabel>
+              <SpecValue>{vehicleData.fuel_type}</SpecValue>
+            </SpecItem>
+            <SpecItem>
+              <SpecLabel>Color</SpecLabel>
+              <SpecValue>{vehicleData.colour}</SpecValue>
+            </SpecItem>
+          </SpecsGrid>
 
-        <SpecsGrid>
-          <SpecItem>
-            <SpecLabel>Year</SpecLabel>
-            <SpecValue>{vehicleData.year}</SpecValue>
-          </SpecItem>
-          <SpecItem>
-            <SpecLabel>Variant</SpecLabel>
-            <SpecValue>{vehicleData.variant}</SpecValue>
-          </SpecItem>
-        </SpecsGrid>
+          <SpecsGrid>
+            <SpecItem>
+              <SpecLabel>Year</SpecLabel>
+              <SpecValue>{vehicleData.year}</SpecValue>
+            </SpecItem>
+            <SpecItem>
+              <SpecLabel>Variant</SpecLabel>
+              <SpecValue>{vehicleData.variant}</SpecValue>
+            </SpecItem>
+          </SpecsGrid>
 
-        <ContactButton onClick={handlePhoneClick}>
-          <PhoneIcon className="w-5 h-5" />
-          <span>Show Contact Details</span>
-        </ContactButton>
+          <ContactButton onClick={handlePhoneClick}>
+            <PhoneIcon className="w-5 h-5" />
+            <span>Show Contact Details</span>
+          </ContactButton>
 
-        {showPhone && (
-          <ContactDetails>
-            <p className="font-bold">{vehicleData.agent_name}</p>
-            <a
-              href="tel:0827093821"
-              className="flex items-center justify-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
-            >
-              <PhoneIcon className="w-5 h-5" />
-              <span>082 709 3821</span>
-            </a>
-          </ContactDetails>
-        )}
+          {showPhone && (
+            <ContactDetails>
+              <p className="font-bold">{vehicleData.agent_name}</p>
+              <a
+                href="tel:0827093821"
+                className="flex items-center justify-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+              >
+                <PhoneIcon className="w-5 h-5" />
+                <span>082 709 3821</span>
+              </a>
+            </ContactDetails>
+          )}
 
-        <Description>
-          <h2>Description</h2>
-          <p>{vehicleData.description}</p>
-        </Description>
-      </DetailsContainer>
+          <Description>
+            <h2>Description</h2>
+            <p>{vehicleData.description}</p>
+          </Description>
+        </DetailsContainer>
+      </Content>
     </Container>
   );
 }
