@@ -23,7 +23,16 @@ async function getVehicleData(id: string) {
       throw new Error('No vehicle data found');
     }
 
-    return data.cache.data[0];
+    // Get the vehicle data and included seller data
+    const vehicleData = data.cache.data[0];
+    const sellerData = data.cache.included?.[0];
+
+    // Combine vehicle and seller data
+    return {
+      ...vehicleData.attributes,
+      id: vehicleData.id,
+      seller: sellerData?.attributes || null
+    };
   } catch (error) {
     console.error('Error fetching vehicle:', error);
     throw error;
@@ -33,7 +42,7 @@ async function getVehicleData(id: string) {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   try {
     const vehicle = await getVehicleData(params.id);
-    const attributes = vehicle.attributes;
+    const attributes = vehicle;
     
     return {
       title: `${attributes.title} - Cars.co.za`,

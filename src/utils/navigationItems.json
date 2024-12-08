@@ -1,0 +1,73 @@
+{
+  "navItems": [
+    {
+      "name": "Buy Car",
+      "href": "/buy-car",
+      "dropdownItems": [
+        { "name": "New Car Search", "href": "/buy-car/search" },
+        { "name": "Used Cars", "href": "/used-cars" },
+        { "name": "Commercial Vehicles", "href": "/commercial-vehicles" },
+        { "name": "New Cars Specs", "href": "/buy-car/specs" },
+        { "name": "Compare New Cars", "href": "/buy-car/compare" },
+        { "name": "Car Alerts", "href": "/car-alerts" }
+      ]
+    },
+    {
+      "name": "Car Specials",
+      "href": "/car-specials"
+    },
+    {
+      "name": "Sell Car",
+      "href": "/sell-car",
+      "dropdownItems": [
+        { "name": "Sell Car to dealers", "href": "/sell-car/dealers" },
+        { "name": "Sell Car privately", "href": "/sell-car/privately" }
+      ]
+    },
+    {
+      "name": "News & Reviews",
+      "href": "/news-reviews",
+      "dropdownItems": [
+        { "name": "Motoring News", "href": "/news-reviews/motoring" },
+        { "name": "Car Reviews", "href": "/news-reviews/reviews" },
+        { "name": "Videos", "href": "/news-reviews/videos" },
+        { "name": "Car Launches", "href": "/news-reviews/launches" },
+        { "name": "Opinions", "href": "/news-reviews/opinions" },
+        { "name": "Reports", "href": "/news-reviews/reports" },
+        { "name": "Lifestyle", "href": "/news-reviews/lifestyle" },
+        { "name": "Consumer Advice", "href": "/news-reviews/consumer-advice" },
+        { "name": "Cars.co.za Awards", "href": "/news-reviews/awards" }
+      ]
+    },
+    {
+      "name": "Service & Tools",
+      "href": "/service-tools",
+      "dropdownItems": [
+        { "name": "Car insurance", "href": "/service-tools/insurance" },
+        { "name": "Car Warranty", "href": "/service-tools/warranty" },
+        { "name": "Car Finance Calculator", "href": "/service-tools/calculator" },
+        { "name": "Car Finance", "href": "/service-tools/finance" },
+        { "name": "Car Affordability Calculator", "href": "/service-tools/affordability" }
+      ]
+    },
+    {
+      "name": "Car Dealers",
+      "href": "/car-dealers",
+      "dropdownItems": [
+        { "name": "Car Dealer Search", "href": "/car-dealers/search" },
+        { "name": "Motor Groups", "href": "/car-dealers/motor-groups" },
+        { "name": "Dealer Advertising", "href": "/car-dealers/advertising" },
+        { "name": "HDP Empowerment Programme", "href": "/car-dealers/hdp-programme" }
+      ]
+    },
+    {
+      "name": "Profile",
+      "href": "/profile",
+      "dropdownItems": [
+        { "name": "Wishlist (0)", "href": "/profile/wishlist" },
+        { "name": "Saved Searches (0)", "href": "/profile/saved-searches" },
+        { "name": "Recently Viewed (2)", "href": "/profile/recently-viewed" }
+      ]
+    }
+  ]
+}

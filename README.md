@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cars.co.za Front-End Development Test
 
-## Getting Started
+## Introduction
 
-First, run the development server:
+Welcome to the Cars.co.za Senior Front-End Development Test! This assessment is designed to evaluate your skills in creating a high-fidelity, functional web application that demonstrates your expertise in modern web development technologies.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+As a key member of our development team, you'll be expected to:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Translate design mockups into pixel-perfect, responsive web interfaces
+- Implement complex functionality with clean, maintainable code
+- Handle real-world scenarios such as varied data configurations and user interactions
+- Demonstrate problem-solving skills and attention to detail
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This test will challenge you to recreate our vehicle view page, showcasing your ability to work with APIs, manage state, and create an intuitive user experience that meets the high standards of Cars.co.za.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Objective
 
-## Learn More
+Recreate the Cars.co.za vehicle view page with high fidelity in terms of design and functionality using:
 
-To learn more about Next.js, take a look at the following resources:
+- NextJs
+- Additional tools of your choice
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Reference Listing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Example listing for reference:
+[2008 Volkswagen Touran 1.9 TDI Trendline - Mpumalanga Middelburg](https://www.cars.co.za/for-sale/used/2008-Volkswagen-Touran-1.9-TDI-Trendline-Mpumalanga-Middelburg/9894626/)
 
-## Deploy on Vercel
+## API Endpoints
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Available API endpoints can be found at:
+[https://nextjs-rho-red-22.vercel.app/](https://nextjs-rho-red-22.vercel.app/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The vehicle id you will be using is `7927016`
+
+## Key Requirements
+
+- Implement a responsive design that closely matches the original Cars.co.za vehicle view page
+- Protect mobile numbers by obscuring them until clicked
+- Handle scenarios where dealers may not have WhatsApp enabled
+
+## Technical Considerations
+
+- Use NextJs as the primary framework
+- Implement responsive design
+- Secure handling of contact information
+- Graceful handling of varied dealer configurations
+- The navigation bar does not need to contain all the navigation items. It will just need the Cars.co.za logo
+- You do not need to implement the View Map functionality
+- You do not need to implement the report car functionality
+- Please note how image urls are structured using the images on the Cars.co.za platform. The vehicle id is used for the look up while the title is for SEO.
+  - main image: https://img-ik.cars.co.za/ik-seo/carsimages/tr:n-stock_large/[vehicle_id]/[title].jpg?v=[version]
+  - thumbnail image: https://img-ik.cars.co.za/ik-seo/carsimages/tr:n-stock_thumb/[vehicle_id]/[title].jpg?v=[version]
+  - large image: https://img-ik.cars.co.za/ik-seo/carsimages/tr:n-news_1200x/[vehicle_id]/[title].jpg?v=[version]
+
+## Contact
+
+If you encounter any technical issues with the test API, please email: [dan@cars.co.za](mailto:dan@cars.co.za)
+
+## Submission Guidelines
+
+1. Ensure all functionality is implemented
+2. Provide clear documentation on how to run the project
+3. Include any necessary instructions or notes
+4. Commit frequently
+5. Share a link to a repo entitled dev-test-{your name}
+
+**Good luck with the test!**
