@@ -6,7 +6,7 @@ import { ChevronDownIcon } from '@heroicons/react/24/solid';
 import { HeartIcon, MagnifyingGlassIcon, ClockIcon } from '@heroicons/react/24/outline';
 import styled from 'styled-components';
 import Image from 'next/image';
-import { navItems } from '../utils/navigationItems.json';
+import navigationData from '../utils/navigationItems.json';
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -21,7 +21,7 @@ const Navigation = () => {
             </LogoLink>
           </LogoContainer>
           <NavLinks>
-            {navItems.map((item) => (
+            {navigationData.navItems.map((item) => (
               <NavItem key={item.href}>
                 {item.dropdownItems ? (
                   <>

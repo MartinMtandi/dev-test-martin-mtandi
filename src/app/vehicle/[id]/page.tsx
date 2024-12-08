@@ -9,7 +9,7 @@ interface PageProps {
 
 async function getVehicleData(id: string) {
   try {
-    const response = await fetch(`https://nextjs-rho-red-22.vercel.app/api/vehicle/${id}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/vehicle/${id}`, {
       cache: 'no-store'
     });
     

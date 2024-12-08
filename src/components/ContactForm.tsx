@@ -20,8 +20,7 @@ const ContactForm = ({ dealerName, vehicleTitle }: ContactFormProps) => {
     console.log('Form submitted:', formData);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+  const handleInputChange = (name: string, value: string) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
@@ -31,56 +30,61 @@ const ContactForm = ({ dealerName, vehicleTitle }: ContactFormProps) => {
         <span>Contact {dealerName}</span>
       </FormTitle>
       
+      <ContactDetails>
+        <ContactItem>
+          <ContactLabel>Phone:</ContactLabel>
+          <Value>082 *** ****</Value>
+        </ContactItem>
+        <ContactItem>
+          <ContactLabel>Email:</ContactLabel>
+          <Value>****@cars.co.za</Value>
+        </ContactItem>
+      </ContactDetails>
+      
       <Form onSubmit={handleSubmit}>
         <FormGroup>
-          <Label htmlFor="name">Name*</Label>
+          <InputLabel htmlFor="name">Name*</InputLabel>
           <Input
-            type="text"
             id="name"
-            name="name"
+            type="text"
             value={formData.name}
-            onChange={handleChange}
+            onChange={(e) => handleInputChange('name', e.target.value)}
             required
             placeholder="Enter your name"
           />
         </FormGroup>
 
         <FormGroup>
-          <Label htmlFor="email">Email*</Label>
+          <InputLabel htmlFor="email">Email*</InputLabel>
           <Input
-            type="email"
             id="email"
-            name="email"
+            type="email"
             value={formData.email}
-            onChange={handleChange}
+            onChange={(e) => handleInputChange('email', e.target.value)}
             required
             placeholder="Enter your email"
           />
         </FormGroup>
 
         <FormGroup>
-          <Label htmlFor="phone">Phone Number*</Label>
+          <InputLabel htmlFor="phone">Phone Number*</InputLabel>
           <Input
-            type="tel"
             id="phone"
-            name="phone"
+            type="tel"
             value={formData.phone}
-            onChange={handleChange}
+            onChange={(e) => handleInputChange('phone', e.target.value)}
             required
             placeholder="Enter your phone number"
           />
         </FormGroup>
 
         <FormGroup>
-          <Label htmlFor="message">Message*</Label>
+          <InputLabel htmlFor="message">Message*</InputLabel>
           <TextArea
             id="message"
-            name="message"
             value={formData.message}
-            onChange={handleChange}
+            onChange={(e) => handleInputChange('message', e.target.value)}
             required
-            rows={4}
-            placeholder="Enter your message"
           />
         </FormGroup>
 
@@ -112,8 +116,35 @@ const FormTitle = styled.h2`
   gap: 0.5rem;
   font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
   color: #1f2937;
+`;
+
+const ContactDetails = styled.div`
+  padding: 0.75rem;
+  background-color: #f8fafc;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+`;
+
+const ContactItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #64748b;
+  
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+`;
+
+const ContactLabel = styled.span`
+  font-weight: 500;
+`;
+
+const Value = styled.span`
+  color: #334155;
 `;
 
 const Form = styled.form`
@@ -128,7 +159,7 @@ const FormGroup = styled.div`
   gap: 0.5rem;
 `;
 
-const Label = styled.label`
+const InputLabel = styled.label`
   font-size: 0.875rem;
   font-weight: 500;
   color: #4b5563;
