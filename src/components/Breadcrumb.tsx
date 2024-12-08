@@ -36,7 +36,6 @@ const Breadcrumb = ({ brand, model, type }: BreadcrumbProps) => {
 
 const BreadcrumbContainer = styled.nav`
   padding: 1rem 0;
-  background-color: white;
 `;
 
 const BreadcrumbList = styled.ol`

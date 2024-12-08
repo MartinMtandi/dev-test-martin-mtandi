@@ -144,7 +144,6 @@ const NavBar = styled.nav`
 const NavContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
 `;
 
 const NavContent = styled.div`
